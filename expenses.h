@@ -20,6 +20,7 @@ class static_expenses
     double amount_of_money_expense;
     double payment_date;
 
+    
 
     
 
@@ -28,7 +29,7 @@ class static_expenses
 class dynamic_expenses
 {
     private:
-
+    int m_importance_of_purchase = importance_of_purchase;
     public:
 
     double money_saved;
@@ -38,23 +39,32 @@ class dynamic_expenses
     std::string date_of_purchase;
     int importance_of_purchase;
 
+    public:
+
+    std::string importance (int m_importance_of_purchase);
+
 };
 
 //This class will accumulate the expenses into one sum (into the variable expenses in Main.cpp)
 class calculating_all_expenses
 {
     public:
-    double calculate_expense(double dynamic_expenses, double static_expenses)
-    {
-        double all_expenses = dynamic_expenses + static_expenses;
-        return all_expenses;
-    }
-
+    double calculate_expense(double dynamic_expenses, double static_expenses);
 };
 
 //This will calculate the months that are needed to reach the savings goal
 class goals
 {
+    public:
+    void calculate_months(double after_calculations, double set_goal);
 
+
+};
+
+//This class sets the mode, which determines the percentages that will be used to save up money a.k.a normal or aggressive
+class set_mode
+{
+    public:
+    double selected_percentages(double &result, int mode, double income, double all_expenses, double money_in_bank);
 
 };
